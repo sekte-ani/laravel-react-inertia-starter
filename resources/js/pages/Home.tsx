@@ -1,6 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 // import {Button} from '@ani-ui/anis';
-import { Button } from '@ani-ui/anis';
+import { Button, Input } from '@ani-ui/anis';
 
 export default function Home() {
     return (
@@ -55,7 +55,8 @@ export default function Home() {
                             >
                                 Go to /welcome
                             </Link>
-                            <Button>Tombol</Button>
+                            <Button color='primary'>Tombol</Button>
+                            <Input placeholder="Masukkan teks..." />
                         </div>
 
 

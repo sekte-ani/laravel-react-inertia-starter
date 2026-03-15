@@ -1,0 +1,100 @@
+/*
+ * Local fallback for the `tw-animate-css` package.
+ * This keeps builds working even when the package isn't installed.
+ * If you install the real package later, you can remove the Vite alias.
+ */
+
+@keyframes tw-enter {
+    from {
+        opacity: var(--tw-enter-opacity, 1);
+        transform: translate3d(
+                var(--tw-enter-translate-x, 0),
+                var(--tw-enter-translate-y, 0),
+                0
+            )
+            scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), 1)
+            rotate(var(--tw-enter-rotate, 0));
+    }
+}
+
+@keyframes tw-exit {
+    to {
+        opacity: var(--tw-exit-opacity, 1);
+        transform: translate3d(
+                var(--tw-exit-translate-x, 0),
+                var(--tw-exit-translate-y, 0),
+                0
+            )
+            scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), 1)
+            rotate(var(--tw-exit-rotate, 0));
+    }
+}
+
+/* Common enter/exit utility classes used by headless UI patterns. */
+.animate-in {
+    animation-name: tw-enter;
+    animation-duration: var(--tw-animate-duration, 150ms);
+    animation-timing-function: var(--tw-animate-ease, cubic-bezier(0.16, 1, 0.3, 1));
+    animation-fill-mode: both;
+}
+
+.animate-out {
+    animation-name: tw-exit;
+    animation-duration: var(--tw-animate-duration, 150ms);
+    animation-timing-function: var(--tw-animate-ease, cubic-bezier(0.16, 1, 0.3, 1));
+    animation-fill-mode: both;
+}
+
+/* A small subset of helpers. Add more if components need them. */
+.fade-in-0 {
+    --tw-enter-opacity: 0;
+}
+.fade-out-0 {
+    --tw-exit-opacity: 0;
+}
+.zoom-in-95 {
+    --tw-enter-scale: 0.95;
+}
+.zoom-out-95 {
+    --tw-exit-scale: 0.95;
+}
+.slide-in-from-top-2 {
+    --tw-enter-translate-y: -0.5rem;
+}
+.slide-in-from-bottom-2 {
+    --tw-enter-translate-y: 0.5rem;
+}
+.slide-in-from-left-2 {
+    --tw-enter-translate-x: -0.5rem;
+}
+.slide-in-from-right-2 {
+    --tw-enter-translate-x: 0.5rem;
+}
+
+/* Accordion helpers (commonly used by Radix-like components). */
+@keyframes tw-accordion-down {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--radix-accordion-content-height);
+    }
+}
+
+@keyframes tw-accordion-up {
+    from {
+        height: var(--radix-accordion-content-height);
+    }
+    to {
+        height: 0;
+    }
+}
+
+.animate-accordion-down {
+    animation: tw-accordion-down 200ms ease-out;
+}
+
+.animate-accordion-up {
+    animation: tw-accordion-up 200ms ease-out;
+}
+

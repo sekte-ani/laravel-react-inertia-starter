@@ -1,7 +1,11 @@
 @import 'tailwindcss';
+@import "@ani-ui/anis/styles.css";
 
 @source '../views';
+@source '../js/**/*.ts';
+@source '../js/**/*.tsx';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../node_modules/@ani-ui/anis/dist/**/*.js';
 
 @theme {
     --font-sans:
